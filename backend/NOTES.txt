@@ -1,0 +1,79 @@
+//===================================================//
+/*
+ROTA/RECURSO
+*/
+
+ /*
+MÉTODOS HTTP:
+
+*GET: Buscar/listar uma informação do backend
+*POST: Criar uma informação no backend
+*PUT: Alterar uma informação no backend
+*DELETE: Deletar uma informação no backend
+ */
+
+//========================================================//
+
+/*
+*Tipos de parâmetros:
+
+*Query Params: Parâmetros nomeados enviados na rota após "?"
+(filtros, paginação)
+
+*Route Params: Parâmetros utilizados para identificar
+recursos
+
+*Request Body: Corpo da requisição, utilizado para criar ou
+alterar recursos
+
+*/
+//=====================================================//
+
+
+/*
+BANCO DE DADOS
+
+*SQL: MySQL, SQLite, PostgreSQL, Oracle, Microsoft SQL Server...
+*NoSQL: MongoDB, etc...
+*/ 
+
+/**
+ *Driver: SELECT * FROM users
+ *Query Builder: table('users').select('*').where() 
+ */
+
+
+ //==================EXEMPLOS DE ROTAS===============================//
+
+ routes.get('/users', (req, res)=>{
+
+    const params = req.query;
+    console.log(params);
+    // (rota)?name=Joao&idade=23
+
+    return res.json({
+
+        evento: 'Semana Omni Stack 11.0',
+        aluno: 'João Paulo Moura'
+    }) //resposta do app
+});
+
+routes.get('/users/:param', (req,res)=>{
+
+    const routeParams = req.params;
+    console.log(routeParams);
+    // (rota)/parametro
+
+    return res.send('Hello World');
+})
+
+routes.post('/users/2', (req,res)=>{
+
+    const body = req.body;
+    console.log(body);
+    //criar um corpo no insomnia
+
+    return res.send('Hello world');
+})
+
+
